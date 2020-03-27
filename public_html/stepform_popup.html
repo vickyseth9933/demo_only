@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width initial-scale=1.0">
+      <title>Cross Bore</title>
+      <!-- GLOBAL MAINLY STYLES-->
+      <link href="assets/vendors/css/bootstrap.min.css" rel="stylesheet" />
+      <link href="assets/vendors/css/font-awesome.min.css" rel="stylesheet" />
+      <link href="assets/vendors/css/animate.min.css" rel="stylesheet" />
+      <link href="assets/vendors/css/toastr.min.css" rel="stylesheet" />
+      <link href="assets/vendors/css/bootstrap-select.min.css" rel="stylesheet" />
+      <!-- THEME STYLES-->
+      <link href="assets/vendors/css/datatables.min.css" rel="stylesheet" />
+      <link href="assets/vendors/css/select.datatable.min.css" rel="stylesheet" />
+      <link href="assets/css/main.min.css" rel="stylesheet" />
+	  <style>
+	   .inlineinput2{
+			min-width:180px !important;
+	   }
+	   .checkbox1{
+			display:inline;
+			width:250px;
+	   }
+	   .full-w-input{
+		   margin-left: 50px;
+			width: 546px;
+		   }
+	  </style>
+      <!-- PAGE LEVEL STYLES-->
+   </head>
+   <body class="fixed-navbar">
+      <div class="page-wrapper">
+         <!-- START HEADER-->
+         <header class="header">
+            <div class="flexbox flex-1">
+               <!-- START TOP-LEFT TOOLBAR-->
+               <ul class="nav navbar-toolbar">
+                  <li>
+                     <a href="reviewer-dashboard.html"><img src="assets/img/Logo.png" alt="image"></a>
+                  </li>
+               </ul>
+               <!-- END TOP-LEFT TOOLBAR-->
+               <!-- START TOP-RIGHT TOOLBAR-->
+               <ul class="nav navbar-toolbar">
+                  <li>
+                     <a href="reviewer-dashboard.html"><i class="sidebar-item-icon fa fa-tachometer"></i><span class="nav-label">Dashboard</span></a>
+                  </li>
+                  <li>
+                     <a href="resources.html"><i class="sidebar-item-icon fa fa-user"></i><span class="nav-label">Resources</span></a>
+                  </li>
+                  <li class="color-div"><a href=""><i class="fa fa-phone"></i> Contact</a></li>
+               </ul>
+               <!-- END TOP-RIGHT TOOLBAR-->
+            </div>
+         </header>
+         <!-- END HEADER-->
+         <div class="container">
+            <div class="content-wrapper">
+               <!-- START PAGE CONTENT-->
+               <!-- Large modal -->
+               <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button>
+			   
+			   
+               <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-lg">
+                     <div class="modal-content p-4">
+                        <div class="modal-header">
+                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                           <span aria-hidden="true">&times;</span>
+                           </button>
+                        </div>
+                        <div class="container">					
+                           
+						    <h5 class="font-strong mb-4 pt-2">Cover Sheet</h5>
+                           <div class="row">
+                              <div class="col-lg-6">
+                                 <div class="form-group row">
+                                    <label class="col-sm-5 col-form-label">Reviewer LANID</label>
+                                    <div class="col-sm-7">
+                                       <input type="text" readonly="" value="" id="lanid" class="form-control" placeholder="">
+                                    </div>
+                                 </div>
+                                 <div class="form-group row">
+                                    <label class="col-sm-5 col-form-label">Date of Review</label>
+                                    <div class="col-sm-7">
+                                       <input type="text" readonly="" value="" id="review_date" class="form-control">
+                                    </div>
+                                 </div>
+                                 <div class="form-group row">
+                                    <label class="col-sm-5 col-form-label">Reviewer Completion Date</label>
+                                    <div class="col-sm-7">
+                                       <input type="text" placeholder="" value="" id="review_completion_date" class="form-control">
+                                    </div>
+                                 </div>
+                                 <div class="form-group row">
+                                    <label class="col-sm-5 col-form-label">Order Number</label>
+                                    <div class="col-sm-7">
+                                       <input type="text" readonly="" value="" id="order_no" class="form-control valid" placeholder="" aria-invalid="false">
+                                    </div>
+                                 </div>
+                                 <div class="form-group row">
+                                    <label class="col-sm-5 col-form-label">Project ID</label>
+                                    <div class="col-sm-7">
+                                       <input type="text" value="" id="project_id" class="form-control" placeholder="">
+                                    </div>
+                                 </div>
+                                 <div class="form-group row">
+                                    <label class="col-sm-5 col-form-label">Division</label>
+                                    <div class="col-sm-7">
+                                       <input type="text" value="" id="division" class="form-control" placeholder="">
+                                    </div>
+                                 </div>
+                                 <div class="form-group row">
+                                    <label class="col-sm-5 col-form-label">City</label>
+                                    <div class="col-sm-7">
+                                       <input type="text" value="" id="city" class="form-control">
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-lg-6">
+                                 <div class="form-group row">
+                                    <label class="col-sm-5 col-form-label">Order Description</label>
+                                    <div class="col-sm-7">
+                                       <input type="text" value="" id="order_description" class="form-control">
+                                    </div>
+                                 </div>
+                                 <div class="form-group row">
+                                    <label class="col-sm-5 col-form-label">FE/CM</label>
+                                    <div class="col-sm-7">
+                                       <input type="text" value="" id="FE_CM" class="form-control" placeholder="">
+                                    </div>
+                                 </div>
+                                 <div class="form-group row">
+                                    <label class="col-sm-5 col-form-label">CE/RCM</label>
+                                    <div class="col-sm-7">
+                                       <input type="text" value="" id="CE_RCM" class="form-control" placeholder="">
+                                    </div>
+                                 </div>
+                                 <div class="form-group row">
+                                    <label class="col-sm-5 col-form-label">Foreman</label>
+                                    <div class="col-sm-7">
+                                       <input type="text" value="" id="foreman" class="form-control" placeholder="">
+                                    </div>
+                                 </div>
+                                 <div class="form-group row">
+                                    <label class="col-sm-5 col-form-label">M&amp;C Supervisor</label>
+                                    <div class="col-sm-7">
+                                       <input type="text" value="" id="m_c_supervisor" class="form-control" placeholder="">
+                                    </div>
+                                 </div>
+                                 <div class="form-group row">
+                                    <label class="col-sm-5 col-form-label">Distribution/Transmission</label>
+                                    <div class="col-sm-7">
+                                       <input type="text" class="form-control valid" aria-invalid="false" id="Distribution_Transmission">
+                                         
+                                    </div>
+                                 </div>
+                                 <div class="form-group row">
+                                    <label class="col-sm-5 col-form-label">Resp Group</label>
+                                    <div class="col-sm-7">
+                                       <input type="text" class="form-control valid" aria-invalid="false" id="resp_gp">
+                                        
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           
+						   <h5 class="font-strong mb-4 pt-2">Project Details</h5>
+                           <div class="row container">
+                              <div class="col-sm-12">
+                                 <div class="row">
+                                    <div class="col-sm-12">									   
+									   <div class="row p-0">
+											<div class=" col-1 p-0">
+												<label>MAT</label>
+											</div>
+											<div class=" col-10 p-0">
+												<input type="text" value="" id="mat" class="form-control full-w-input">
+												<span>&nbsp;</span>
+											</div>
+											<div class=" col-1">
+												 <div class="custom-control custom-checkbox ml-3">
+													 <input type="checkbox" value="" class="custom-control-input" id="Checkmat">
+													 <label class="custom-control-label" for="Checkmat"></label>
+												  </div>
+											</div>
+									   </div>                             
+                                          
+                                         
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="row">
+                                    <div class="col-sm-12">
+                                       <div class="form-group fild-width label-width">
+
+                                          <label>CN24</label>
+										  <span class="inlineInput inlineinput2">
+                                          <input type="text" class="form-control inlineInput inlineinput2">                                            
+                                          </span>
+                                          <span class="inlineInput inlineinput2">
+                                          <input type="text" value="" id="cn24_lanid" class="form-control valid" placeholder="" aria-invalid="false">
+                                          </span>
+                                          <span class="inlineInput inlineinput2">
+                                          <input type="text" value="" id="cn24_date" data-date="MM-DD-YYYY" data-date-format="MM-DD-YYYY" class="form-control datepicker" placeholder="">
+                                          </span>
+                                          <span>&nbsp;</span>
+                                          <div class="custom-control custom-checkbox">
+                                             <input type="checkbox" value="" id="check_cn24" class="custom-control-input">
+                                             <label class="custom-control-label" for="check_cn24"></label>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="row">
+                                    <div class="col-sm-12">
+                                       <div class="form-group fild-width label-width">
+                                          <label>CN29</label>
+                                          <span class="inlineInput inlineinput2">
+                                            <input type="text" class="form-control" id="cn29">
+                                              
+                                          </span>
+                                          <span class="inlineInput inlineinput2">
+                                          <input value="" id="cn29_lanid" type="text" class="form-control" placeholder="">
+                                          </span>
+                                          <span class="inlineInput inlineinput2">
+                                             <!--<input  type="text" value="" id="cn29_date" data-date="MM-DD-YYYY" data-date-format="MM-DD-YYYY" class="form-control datepicker" placeholder="Date">-->
+                                             <input type="text" value="" id="cn29_date" class="form-control datepicker" data-date="MM-DD-YYYY" data-date-format="MM-DD-YYYY" placeholder="">
+                                          </span>
+                                          <span>&nbsp;</span>
+                                          <div class="custom-control custom-checkbox">
+                                             <input type="checkbox" value="" class="custom-control-input" id="check_cn29">
+                                             <label class="custom-control-label" for="check_cn29"></label>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="row">
+                                    <div class="col-sm-12">
+                                       <div class="form-group fild-width label-width">
+                                          <label>CN07</label>
+                                          <span class="inlineInput inlineinput2">
+										  
+                                             <input type="text" class="form-control" id="cn07">
+                                                
+                                             
+                                          </span>
+                                          <span class="inlineInput inlineinput2">
+                                          <input type="text" class="form-control" value="" id="cn07_lanid" placeholder="">
+                                          </span>
+                                          <span class="inlineInput inlineinput2">
+                                          <input type="text" data-date="MM-DD-YYYY" data-date-format="MM-DD-YYYY" class="form-control datepicker" value="" id="cn07_date" placeholder="">
+                                          </span>
+                                          <span>&nbsp;</span>
+                                          <div class="custom-control custom-checkbox">
+                                             <input type="checkbox" value="" class="custom-control-input" id="check_cn07">
+                                             <label class="custom-control-label" for="check_cn07"></label>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="row">
+                                    <div class="col-sm-12">
+                                       <div class="form-group fild-width label-width">
+                                          <label>DC 39</label>
+                                          <span class="inlineInput inlineinput2">
+                                             <input type="text"  class="form-control" id="dc39">
+                                                
+                                          </span>
+                                          <span class="inlineInput inlineinput2">
+                                          <input type="text" class="form-control" value="" id="dc39_lanid" placeholder="">
+                                          </span>
+                                          <span class="inlineInput inlineinput2">
+                                          <input type="text" data-date="MM-DD-YYYY" data-date-format="MM-DD-YYYY" class="form-control datepicker" value="" id="dc39_date" placeholder="">
+                                          </span>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="row">
+                                    <div class="col-sm-12">
+                                       <div class="form-group fild-width label-width">
+                                          <label>DC 46</label>
+                                          <span class="inlineInput inlineinput2">
+                                             <input type="text" class="form-control" id="dc46">
+                                               
+                                          </span>
+                                          <span class="inlineInput inlineinput2">
+                                          <input type="text" class="form-control" value="" id="dc46_lanid" placeholder="">
+                                          </span>
+                                          <span class="inlineInput inlineinput2">
+                                          <input type="text" data-date="MM-DD-YYYY" data-date-format="MM-DD-YYYY" class="form-control datepicker" value="" id="dc46_date" placeholder="">
+                                          </span>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="row">
+                                    <div class="col-sm-12">
+                                       <div class="form-group fild-width label-width">
+                                          <label>DC 05</label>
+                                          <span class="inlineInput inlineinput2">
+                                             <input type="text"  class="form-control" id="dc05">
+                                               
+                                          </span>
+                                          <span class="inlineInput inlineinput2">
+                                          <input type="text" class="form-control" value="" id="dc05_lanid" placeholder="">
+                                          </span>
+                                          <span class="inlineInput inlineinput2">
+                                          <input type="text" data-date="MM-DD-YYYY" data-date-format="MM-DD-YYYY" class="form-control datepicker" value="" id="dc05_date" placeholder="">
+                                          </span>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="row">
+                                    <div class="col-sm-12">
+                                       <div class="form-group fild-width label-width">
+                                          <label>DC 14</label>
+                                          <span class="inlineInput inlineinput2">
+                                            <input type="text"  class="form-control" id="dc14">
+                                               
+                                          </span>
+                                          <span class="inlineInput inlineinput2">
+                                          <input type="text" class="form-control" value="" id="dc14_lanid" placeholder="">
+                                          </span>
+                                          <span class="inlineInput inlineinput2">
+                                          <input type="text" data-date="MM-DD-YYYY" data-date-format="MM-DD-YYYY" class="form-control datepicker" value="" id="dc14_date" placeholder="">
+                                          </span>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="row">
+                                    <div class="col-sm-12">
+                                       <div class="form-group fild-width label-width">
+                                          <label>DC 15</label>
+                                          <span class="inlineInput inlineinput2">
+                                             <input type="text"  class="form-control" id="dc15">
+                                               
+                                          </span>
+                                          <span class="inlineInput inlineinput2">
+                                          <input type="text" class="form-control" value="" id="dc15_lanid" placeholder="">
+                                          </span>
+                                          <span class="inlineInput inlineinput2">
+                                          <input type="text" data-date="MM-DD-YYYY" data-date-format="MM-DD-YYYY" class="form-control datepicker" value="" id="dc15_date" placeholder="">
+                                          </span>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="row">
+                                    <div class="col-sm-12">
+                                       <div class="form-group fild-width label-width">
+                                          <label>DC 19</label>
+                                          <span class="inlineInput inlineinput2">
+                                             <input type="text" class="form-control valid" id="dc19" aria-invalid="false">
+                                                
+                                          </span>
+                                          <span class="inlineInput inlineinput2">
+                                          <input type="text" class="form-control" value="" id="dc19_lanid" placeholder="">
+                                          </span>
+                                          <span class="inlineInput inlineinput2">
+                                          <input type="text" data-date="MM-DD-YYYY" data-date-format="MM-DD-YYYY" class="form-control datepicker" value="" id="dc19_date" placeholder="">
+                                          </span>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="row">
+                                    <div class="col-sm-12">
+                                       <div class="form-group fild-width label-width">
+                                          <label>DC 10</label>
+                                          <span class="inlineInput inlineinput2">
+                                            <input type="text"  class="form-control" id="dc10">
+                                                
+                                          </span>
+                                          <span class="inlineInput inlineinput2">
+                                          <input type="text" class="form-control" value="" id="dc10_lanid" placeholder="">
+                                          </span>
+                                          <span class="inlineInput inlineinput2">
+                                          <input type="text" data-date="MM-DD-YYYY" data-date-format="MM-DD-YYYY" class="form-control datepicker" value="" id="dc10_date" placeholder="">
+                                          </span>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 
+                              </div>
+							  <div class="row">
+                                    <div class="col-sm-12">
+                                       <div class="form-group fild-width">
+                                          <label>General comments for SAP task (CN/DC): </label>
+                                          <input type="text" value="" id="cmt_cn_dc" class="form-control">
+                                       </div>
+                                    </div>
+                               </div>
+                            <h5 class="font-strong mb-4 pt-2">Qualifying Five</h5>
+                           <div class="row padd-div">
+                              <div class="col-sm-8 col-md-4 align-self-center">
+                                 <div class="form-group fild-width">
+                                    <label>CN29 completed under Task Tab in SAP or in the Notification Long Text?</label>
+                                 </div>
+                              </div>
+                              <div class="col-sm-4 col-md-2 align-self-center">
+                                 <div class="outerDivFull">
+                                    <div class="switchToggle">
+                                       <input type="checkbox" name="name" value="" id="CN29_in_SAP">
+                                       <label for="CN29_in_SAP">Toggle</label>
+                                    </div>
+                                    <!--<div class="switchToggle">
+                                       <input type="checkbox" name="name" value="" id="switch1" >
+                                       <label for="switch1">Toggle</label>
+                                       </div>-->
+                                 </div>
+                              </div>
+                              <div class="col-sm-12 col-md-6">
+                                 <div class="form-group class-color_div">
+                                   <input type="text" class="form-control textareas" rows="2" id="CN29_in_SAP_cmt" value="" placeholder="  ">
+                                 </div>
+                                 <span class="errorcmt" id="errorcmt" style="display:none;color:red;">Please Enter Notes</span>
+                              </div>
+                           </div>
+                           <div id="qualfi" class="">
+                              <div class="row padd-div CN24-div">
+                                 <div class="col-sm-8 col-md-4 align-self-center">
+                                    <div class="form-group fild-width">
+                                       <label>Has the work been completed ?</label>
+                                    </div>
+                                 </div>
+                                 <div class="col-sm-4 col-md-2 align-self-center">
+                                    <div class="select-box-div">
+                                       <input type="text" class="form-control Qualify" id="CN24">
+                                          
+                                    </div>
+                                 </div>
+                                 <div class="col-sm-12 col-md-6">
+                                    <div class="form-group class-color_div">
+                                      <input type="text" class="form-control textareas" rows="2" value="" id="CN24_cmt" placeholder="">
+                                    </div>
+                                    <span class="errorcmt" id="errorCN24_cmt" style="display:none;color:red;">Please Enter Notes</span>
+                                 </div>
+                              </div>
+                              <div class="row padd-div gas_assets_installed-div">
+                                 <div class="col-sm-8 col-md-4 align-self-center">
+                                    <div class="form-group fild-width">
+                                       <label>Was any gas assets (ex. valve, pipe, Etc.) installed?</label>
+                                    </div>
+                                 </div>
+                                 <div class="col-sm-4 col-md-2 align-self-center">
+                                    <div class="select-box-div">
+                                       <input type="text" class="form-control Qualify" id="gas_assets_installed">
+                                          
+                                    </div>
+                                 </div>
+                                 <div class="col-sm-12 col-md-6">
+                                    <div class="form-group class-color_div">
+                                      <input type="text" class="form-control textareas" rows="2" value="" id="gas_assets_installed_cmt" placeholder="">
+                                    </div>
+                                    <span class="errorcmt" id="errorgas_assets_installed_cmt" style="display:none;color:red;">Please Enter Notes</span>
+                                 </div>
+                              </div>
+                              <div class="row padd-div installation_below_ground-div">
+                                 <div class="col-sm-8 col-md-4 align-self-center">
+                                    <div class="form-group fild-width">
+                                       <label>Installation took place below ground?</label>
+                                    </div>
+                                 </div>
+                                 <div class="col-sm-4 col-md-2 align-self-center">
+                                    <div class="select-box-div">
+                                       <input type="text" class="form-control Qualify" id="installation_below_ground">
+                                          
+                                    </div>
+                                 </div>
+                                 <div class="col-sm-12 col-md-6">
+                                    <div class="form-group class-color_div">
+                                      <input type="text" class="form-control textareas" rows="2" value="" id="installation_below_ground_cmt" placeholder="">
+                                    </div>
+                                    <span class="errorcmt" id="errorinstallation_below_ground_cmt" style="display:none;color:red;">Please Enter Notes</span>
+                                 </div>
+                              </div>
+                              <div class="row padd-div MOI-div">
+                                 <div class="col-sm-8 col-md-4 align-self-center">
+                                    <div class="form-group fild-width">
+                                       <label>What is the Method of Installation (MOI)</label>
+                                    </div>
+                                 </div>
+                                 <div class="col-sm-4 col-md-2 align-self-center">
+                                    <div class="select-box-div">
+                                       <input type="text" class="form-control Qualify" id="MOI">
+                                          
+                                    </div>
+                                 </div>
+                                 <div class="col-sm-12 col-md-6">
+                                    <div class="form-group class-color_div">
+                                      <input type="text" class="form-control textareas" rows="2" value="" id="MOI_cmt" placeholder="">
+                                    </div>
+                                    <span class="errorcmt" id="errorMOI_cmt" style="display:none;color:red;">Please Enter Notes</span>
+                                 </div>
+                              </div>
+                           
+							  <h5 class="font-strong mb-4 pt-2">Checklist Questions</h5>
+                              <div class="row padd-div">
+                                 <div class="col-sm-8 col-md-4 align-self-center">
+                                    <div class="form-group fild-width">
+                                       <label>Was Display Notification in SAP Reviewed </label>
+                                    </div>
+                                 </div>
+                                 <div class="col-sm-4 col-md-2 align-self-center">
+                                    <div class="outerDivFull">
+                                       <div class="switchToggle">
+                                          <input type="checkbox" name="name" value="" id="SAP_Reviewed">
+                                          <label for="SAP_Reviewed">Toggle</label>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="col-sm-12 col-md-6">
+                                    <div class="form-group class-color_div">
+                                      <input type="text" class="form-control" rows="2" value="" id="SAP_Reviewed_cmt" placeholder="">
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="row padd-div">
+                                 <div class="col-sm-8 col-md-4 align-self-center">
+                                    <div class="form-group fild-width">
+                                       <label>MOI for Srv (s)?</label>
+                                    </div>
+                                 </div>
+                                 <div class="col-sm-4 col-md-2 align-self-center">
+                                    <div class="select-box-div">
+                                       <input type="text" class="form-control" id="MOI_for_Srv">
+                                          
+                                    </div>
+                                 </div>
+                                 <div class="col-sm-12 col-md-6">
+                                    <div class="form-group class-color_div">
+                                      <input type="text" class="form-control" rows="2" value="" id="MOI_for_Srv_cmt" ="" placeholder="">
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="row padd-div">
+                                 <div class="col-sm-8 col-md-4 align-self-center">
+                                    <div class="form-group fild-width">
+                                       <label>MOI for Main (s)?</label>
+                                    </div>
+                                 </div>
+                                 <div class="col-sm-4 col-md-2 align-self-center">
+                                    <div class="select-box-div">
+                                       <input type="text" class="form-control" id="MOI_for_Main">
+                                          
+                                    </div>
+                                 </div>
+                                 <div class="col-sm-12 col-md-6">
+                                    <div class="form-group class-color_div">
+                                      <input type="text" class="form-control" rows="2" value="" id="MOI_for_Main_cmt" placeholder="">
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="row padd-div">
+                                 <div class="col-sm-8 col-md-4 align-self-center">
+                                    <div class="form-group fild-width">
+                                       <label>Type of document used to determine the MOI</label>
+                                    </div>
+                                 </div>
+                                 <div class="col-sm-4 col-md-2 align-self-center">
+                                    <div class="select-box-div">
+                                       <input type="text" class="form-control" id="determine_the_MOI">
+                                          
+                                    </div>
+                                 </div>
+                                 <div class="col-sm-12 col-md-6">
+                                    <div class="form-group class-color_div">
+                                      <input type="text" class="form-control" rows="2" value="" id="determine_the_MOI_cmt" placeholder="">
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="row padd-div">
+                                 <div class="col-sm-8 col-md-4 align-self-center">
+                                    <div class="form-group fild-width">
+                                       <label>Which software was used to retrieve the document (Ex. Unifier, ECTS, SAP) </label>
+                                    </div>
+                                 </div>
+                                 <div class="col-sm-4 col-md-2 align-self-center">
+                                    <div class="select-box-div">
+                                       <input type="text" class="form-control" id="used_to_retrieve_the_document">
+                                          
+                                    </div>
+                                 </div>
+                                 <div class="col-sm-12 col-md-6">
+                                    <div class="form-group class-color_div">
+                                      <input type="text" class="form-control" rows="2" value="" id="used_to_retrieve_the_document_cmt" placeholder="">
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="row padd-div">
+                                 <div class="col-sm-8 col-md-4 align-self-center">
+                                    <div class="form-group fild-width">
+                                       <label>Doc Number From SAP</label>
+                                    </div>
+                                 </div>
+                                 <div class="col-sm-4 col-md-2 align-self-center">
+                                    <div class="outerDivFull">
+                                       <div class="switchToggle">
+                                          <input type="text" value="" id="SAP" class="form-control">
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="col-sm-12 col-md-6">
+                                    <div class="form-group class-color_div">
+                                      <input type="text" class="form-control" rows="2" value="" id="SAP_cmt" placeholder="">
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="row padd-div">
+                                 <div class="col-sm-8 col-md-4 align-self-center">
+                                    <div class="form-group fild-width">
+                                       <label>PRE- Inspection Document (s) Provided?</label>
+                                    </div>
+                                 </div>
+                                 <div class="col-sm-4 col-md-2 align-self-center">
+                                    <div class="select-box-div">
+                                       <input type="text" class="form-control" id="PRE_Inspection">
+                                          
+                                    </div>
+                                 </div>
+                                 <div class="col-sm-12 col-md-6">
+                                    <div class="form-group class-color_div">
+                                      <input type="text" class="form-control" rows="2" value="" id="PRE_Inspection_cmt" placeholder="">
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="row padd-div">
+                                 <div class="col-sm-8 col-md-4 align-self-center">
+                                    <div class="form-group fild-width">
+                                       <label>Post Inspection Required per PRE-Inspection Document (s)?</label>
+                                    </div>
+                                 </div>
+                                 <div class="col-sm-4 col-md-2 align-self-center">
+                                    <div class="select-box-div">
+                                      <input type="text" class="form-control" id="Post_Inspection_Required_per_PRE_Inspection">
+                                        
+                                    </div>
+                                 </div>
+                                 <div class="col-sm-12 col-md-6">
+                                    <div class="form-group class-color_div">
+                                      <input type="text" class="form-control" rows="2" value="" id="Post_Inspection_Required_per_PRE_Inspection_cmt" placeholder="">
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="row padd-div">
+                                 <div class="col-sm-8 col-md-4 align-self-center">
+                                    <div class="form-group fild-width">
+                                       <label>POST- Inspection Document (s) Provided?</label>
+                                    </div>
+                                 </div>
+                                 <div class="col-sm-4 col-md-2 align-self-center">
+                                    <div class="select-box-div">
+                                       <input type="text" class="form-control" id="POST_Inspection">
+                                          
+                                    </div>
+                                 </div>
+                                 <div class="col-sm-12 col-md-6">
+                                    <div class="form-group class-color_div">
+                                      <input type="text" class="form-control" rows="2" value="" id="POST_Inspection_cmt" placeholder="">
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="row padd-div">
+                                 <div class="col-sm-8 col-md-4 align-self-center">
+                                    <div class="form-group fild-width">
+                                       <label>Cross Bore Log (s) Ready for Inspection ?</label>
+                                    </div>
+                                 </div>
+                                 <div class="col-sm-4 col-md-2 align-self-center">
+                                    <div class="select-box-div">
+                                       <input type="text" class="form-control" id="Cross_Bore_Log">                                          
+                                    </div>
+                                    <!--<div class="outerDivFull">
+                                       <div class="switchToggle">
+                                           <input type="checkbox" name="name" value="" id="Cross_Bore_Log">
+                                           <label for="Cross_Bore_Log">Toggle</label>
+                                       </div>
+                                       </div>-->
+                                 </div>
+                                 <div class="col-sm-12 col-md-6">
+                                    <div class="form-group class-color_div">
+                                      <input type="text" class="form-control" rows="2" ="" placeholder="">
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>        
+                
+            </div>
+         </div>
+      </div>
+      <!-- START SEARCH PANEL-->
+      <!-- BEGIN PAGA BACKDROPS-->
+      <div class="sidenav-backdrop backdrop"></div>
+      <div class="preloader-backdrop">
+         <div class="page-preloader">Loading</div>
+      </div>
+      <!-- END PAGA BACKDROPS-->
+      <!-- CORE PLUGINS-->
+      <script src="assets/vendors/js/jquery.min.js"></script>
+      <script src="assets/vendors/js/popper.min.js"></script>
+      <script src="assets/vendors/js/bootstrap.min.js"></script>
+      <script src="assets/vendors/js/metisMenu.min.js"></script>
+      <script src="assets/vendors/js/jquery.slimscroll.min.js"></script>
+      <script src="assets/vendors/js/toastr.min.js"></script>
+      <script src="assets/vendors/js/jquery.validate.min.js"></script>
+      <script src="assets/vendors/js/bootstrap-select.min.js"></script>
+      <script src="assets/vendors/js/jquery.dataTables.min.js"></script>
+      <script src="assets/vendors/js/dataTables.bootstrap4.min.js"></script>
+      <script src="assets/vendors/js/dataTables.select.min.js"></script>
+      <!-- pie chart -->
+      <script src="assets/vendors/Flot/jquery.flot.js"></script>
+      <script src="assets/vendors/Flot/jquery.flot.resize.js"></script>
+      <script src="assets/vendors/Flot/jquery.flot.pie.js"></script>
+      <script src="assets/vendors/Flot/jquery.flot.time.js"></script>
+      <script src="assets/vendors/Flot/jquery.flot.tooltip.min.js"></script>
+      <script src="assets/vendors/Flot/jquery.flot.categories.js"></script>
+      <script src="assets/vendors/Flot/jquery.flot.stack.js"></script>
+      <script src="assets/vendors/Flot/jquery.flot.selection.js"></script>
+      <script src="assets/vendors/Flot/jquery.flot.orderBars.js"></script>
+      <script src="assets/js/app.min.js"></script>
+      <script src="assets/js/dashboard.reviewer.min.js"></script>
+      <script></script>
+   </body>
+</html>

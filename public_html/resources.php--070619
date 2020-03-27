@@ -1,0 +1,555 @@
+<?php
+include('header.php');
+$role_id = $_SESSION['role'];
+$roleID = explode(',',$role_id);
+if (in_array("1", $roleID))
+{
+	
+}else{
+session_destroy();
+header("Location: index.php");	
+}
+?>
+         <div class="container">
+            <div class="content-wrapper">
+               <!-- START PAGE CONTENT-->
+               <div class="page-content fade-in-up">
+                  <div class="row">
+                     <div class="col-sm-12">
+                        <div class="ibox mb-0">
+                           <div class="ibox-body pb-0">
+                              <div class="row">
+                                 <div class="col-sm-8 border-bottom">
+                                    <h5 class="font-strong mb-4">Should have documents related like </h5>
+                                 </div>
+                                 <div class="col-sm-4 border-bottom text-right">
+                                    <div class="addmember-div">
+                                       <a class="" data-toggle="modal" data-target="" href="#">
+                                          <p>Add Documents<small><i class="fa fa-plus"></i></small></p>
+                                       </a>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="flexbox control-div mb-4 mt-4">
+                                 <div class="flexbox">
+                                    <label class="mb-0 mr-2">Show:</label>
+                                    <div class="select-box-div status_select-div">
+                                       <select class="form-control valid" aria-invalid="false">
+                                          <option value="100">100</option>
+                                          <option value="150">150</option>
+                                          <option value="200">200</option>
+                                       </select>
+                                    </div>
+                                    <label class="mb-0 mr-2 ml-2">Entries</label>
+                                 </div>
+                                 <div class="input-group-icon input-group-icon-left">
+                                    <span>Search</span>
+                                    <input class="form-control form-control-rounded form-control-solid" id="" type="text" placeholder="">
+                                 </div>
+                              </div>
+                              <div class="mngement_list">
+                                 <div class="row">
+                                    <div class="col-md-12">
+                                       <div class="table-responsive row">
+                                          <table class="table table-bordered table-hover" id="">
+                                             <thead class="thead-default thead-lg">
+                                                <tr>
+                                                   <th>Title</th>
+                                                   <th>Upload Date</th>
+                                                   <th>Description</th>
+                                                   <th>Download</th>
+                                                   <th>Delete</th>
+                                                </tr>
+                                             </thead>
+                                             <tbody>
+                                                <tr>
+                                                   <td><img _ngcontent-c1="" alt="" class="doctype" src="assets/img/docicon.png"> GO_NDE_Final_Report_Regular_Template</td>
+                                                   <td>01-10-2019</td>
+                                                   <td>Pipe Carrier RT Preparation Checklist Rev-8 OXGA</td>
+                                                   <td>
+                                                      <p class="Edit" title="Edit">
+                                                         <button class="add-btn" data-title="Edit" data-toggle="modal" data-target="">
+                                                         <i _ngcontent-c1="" aria-hidden="true" class="fa fa-download"></i>
+                                                         </button>
+                                                      </p>
+                                                   </td>
+                                                   <td>
+                                                      <p class="Edit" title="Delete">
+                                                         <button class="btn btn-danger btn-xs deletebtn deletbtn-div" data-title="Delete" data-toggle="modal" data-target="#delete">
+                                                         <span class="fa fa-trash" aria-hidden="true"></span>
+                                                         </button>
+                                                      </p>
+                                                   </td>
+                                                </tr>
+                                                <tr>
+                                                   <td><img _ngcontent-c1="" alt="" class="doctype" src="assets/img/docicon.png"> GO_NDE_Final_Report_Regular_Template</td>
+                                                   <td>02-21-2019</td>
+                                                   <td>Pipe Carrier RT Preparation Checklist Rev-8 OXGA</td>
+                                                   <td>
+                                                      <p class="Edit" title="Edit">
+                                                         <button class="add-btn" data-title="Edit" data-toggle="modal" data-target="">
+                                                         <i _ngcontent-c1="" aria-hidden="true" class="fa fa-download"></i>
+                                                         </button>
+                                                      </p>
+                                                   </td>
+                                                   <td>
+                                                      <p class="Edit" title="Delete">
+                                                         <button class="btn btn-danger btn-xs deletebtn deletbtn-div" data-title="Delete" data-toggle="modal" data-target="#delete">
+                                                         <span class="fa fa-trash" aria-hidden="true"></span>
+                                                         </button>
+                                                      </p>
+                                                   </td>
+                                                </tr>
+                                                <tr>
+                                                   <td><img _ngcontent-c1="" alt="" class="doctype" src="assets/img/docicon.png"> GO_NDE_Final_Report_Regular_Template</td>
+                                                   <td>1-29-2019</td>
+                                                   <td>Pipe Carrier RT Preparation Checklist Rev-8 OXGA</td>
+                                                   <td>
+                                                      <p class="Edit" title="Edit">
+                                                         <button class="add-btn" data-title="Edit" data-toggle="modal" data-target="">
+                                                         <i _ngcontent-c1="" aria-hidden="true" class="fa fa-download"></i>
+                                                         </button>
+                                                      </p>
+                                                   </td>
+                                                   <td>
+                                                      <p class="Edit" title="Delete">
+                                                         <button class="btn btn-danger btn-xs deletebtn deletbtn-div" data-title="Delete" data-toggle="modal" data-target="#delete">
+                                                         <span class="fa fa-trash" aria-hidden="true"></span>
+                                                         </button>
+                                                      </p>
+                                                   </td>
+                                                </tr>
+                                                <tr>
+                                                   <td><img _ngcontent-c1="" alt="" class="doctype" src="assets/img/docicon.png"> GO_NDE_Final_Report_Regular_Template</td>
+                                                   <td>02-30-2019</td>
+                                                   <td>Pipe Carrier RT Preparation Checklist</td>
+                                                   <td>
+                                                      <p class="Edit" title="Edit">
+                                                         <button class="add-btn" data-title="Edit" data-toggle="modal" data-target="">
+                                                         <i _ngcontent-c1="" aria-hidden="true" class="fa fa-download"></i>
+                                                         </button>
+                                                      </p>
+                                                   </td>
+                                                   <td>
+                                                      <p class="Edit" title="Delete">
+                                                         <button class="btn btn-danger btn-xs deletebtn deletbtn-div" data-title="Delete" data-toggle="modal" data-target="#delete">
+                                                         <span class="fa fa-trash" aria-hidden="true"></span>
+                                                         </button>
+                                                      </p>
+                                                   </td>
+                                                </tr>
+                                                <tr>
+                                                   <td><img class="doctype" src="assets/img/docicon.png"> GO_NDE_Final_Report_Regular_Template</td>
+                                                   <td>04-30-2019</td>
+                                                   <td>Pipe Carrier RT Preparation Checklist Rev-8 </td>
+                                                   <td>
+                                                      <p class="Edit" title="Edit">
+                                                         <button class="add-btn" data-title="Edit" data-toggle="modal" data-target="">
+                                                         <i _ngcontent-c1="" aria-hidden="true" class="fa fa-download"></i>
+                                                         </button>
+                                                      </p>
+                                                   </td>
+                                                   <td>
+                                                      <p class="Edit" title="Delete">
+                                                         <button class="btn btn-danger btn-xs deletebtn deletbtn-div" data-title="Delete" data-toggle="modal" data-target="#delete">
+                                                         <span class="fa fa-trash" aria-hidden="true"></span>
+                                                         </button>
+                                                      </p>
+                                                   </td>
+                                                </tr>
+												<tr>
+                                                   <td><img class="doctype" src="assets/img/docicon.png"> GO_NDE_Final_Report_Regular_Template</td>
+                                                   <td>04-30-2019</td>
+                                                   <td>Pipe Carrier RT Preparation Checklist Rev-8 </td>
+                                                   <td>
+                                                      <p class="Edit" title="Edit">
+                                                         <button class="add-btn" data-title="Edit" data-toggle="modal" data-target="">
+                                                         <i _ngcontent-c1="" aria-hidden="true" class="fa fa-download"></i>
+                                                         </button>
+                                                      </p>
+                                                   </td>
+                                                   <td>
+                                                      <p class="Edit" title="Delete">
+                                                         <button class="btn btn-danger btn-xs deletebtn deletbtn-div" data-title="Delete" data-toggle="modal" data-target="#delete">
+                                                         <span class="fa fa-trash" aria-hidden="true"></span>
+                                                         </button>
+                                                      </p>
+                                                   </td>
+                                                </tr>
+                                             </tbody>
+                                          </table>
+                                          <div class="clearfix"></div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="page-content fade-in-up">
+                     <div class="row">
+                        <div class="col-sm-12">
+                           <div class="ibox">
+                              <div class="ibox-body">
+                                 <div class="row">
+                                    <div class="col-sm-8 border-bottom">
+                                       <h5 class="font-strong mb-4">MOI (Methods Of Inspection)</h5>
+                                    </div>
+                                    <div class="col-sm-4 border-bottom text-right">
+                                       <div class="addmember-div">
+                                          <a class="" data-toggle="modal" data-target="" href="#">
+                                             <p>Add Vendor<small><i class="fa fa-plus"></i></small></p>
+                                          </a>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="flexbox control-div mb-4 mt-4">
+                                    <div class="flexbox">
+                                       <label class="mb-0 mr-2">Show:</label>
+                                       <div class="select-box-div status_select-div">
+                                          <select class="form-control valid" aria-invalid="false">
+                                             <option value="100">100</option>
+                                             <option value="150">150</option>
+                                             <option value="200">200</option>
+                                          </select>
+                                       </div>
+                                       <label class="mb-0 mr-2 ml-2">Entries</label>
+                                    </div>
+                                    <div class="input-group-icon input-group-icon-left">
+                                       <span>Search</span>
+                                       <input class="form-control form-control-rounded form-control-solid" id="" type="text" placeholder="">
+                                    </div>
+                                 </div>
+                                 <div class="mngement_list">
+                                    <div class="row">
+                                       <div class="col-md-12">
+                                          <div class="table-responsive row">
+                                             <table class="table table-bordered table-hover" id="">
+                                                <thead class="thead-default thead-lg">
+                                                   <tr>
+                                                      <th>Organisation Name</th>
+                                                      <th>Phone</th>
+                                                      <th>Email</th>
+                                                      <th>Contact Person</th>
+                                                      <th>Delete</th>
+                                                   </tr>
+                                                </thead>
+                                                <tbody>
+                                                   <tr>
+                                                      <td>GO_NDE_Final_Report</td>
+                                                      <td>435-219-5907</td>
+                                                      <td>WIX@pgne.com</td>
+                                                      <td>
+                                                         Cover Sheet
+                                                      </td>
+                                                      <td>
+                                                         <p class="Edit" title="Delete">
+                                                            <button class="btn btn-danger btn-xs deletebtn deletbtn-div" data-title="Delete" data-toggle="modal" data-target="#delete">
+                                                            <span class="fa fa-trash" aria-hidden="true"></span>
+                                                            </button>
+                                                         </p>
+                                                      </td>
+                                                   </tr>
+                                                   <tr>
+                                                      <td>GO_NDE_Final_Report</td>
+                                                      <td>777-219-5907</td>
+                                                      <td>Jax@pgne.com</td>
+                                                      <td>
+                                                         Distribution Checklist
+                                                      </td>
+                                                      <td>
+                                                         <p class="Edit" title="Delete">
+                                                            <button class="btn btn-danger btn-xs deletebtn deletbtn-div" data-title="Delete" data-toggle="modal" data-target="#delete">
+                                                            <span class="fa fa-trash" aria-hidden="true"></span>
+                                                            </button>
+                                                         </p>
+                                                      </td>
+                                                   </tr>
+                                                   <tr>
+                                                      <td>GO_NDE_Final_Report</td>
+                                                      <td>415-219-5900</td>
+                                                      <td>Jax@pgne.com</td>
+                                                      <td>
+                                                         Cover Sheet
+                                                      </td>
+                                                      <td>
+                                                         <p class="Edit" title="Delete">
+                                                            <button class="btn btn-danger btn-xs deletebtn deletbtn-div" data-title="Delete" data-toggle="modal" data-target="#delete">
+                                                            <span class="fa fa-trash" aria-hidden="true"></span>
+                                                            </button>
+                                                         </p>
+                                                      </td>
+                                                   </tr>
+												   <tr>
+                                                      <td>GO_NDE_Final_Report</td>
+                                                      <td>415-219-5900</td>
+                                                      <td>Jax@pgne.com</td>
+                                                      <td>
+                                                         Cover Sheet
+                                                      </td>
+                                                      <td>
+                                                         <p class="Edit" title="Delete">
+                                                            <button class="btn btn-danger btn-xs deletebtn deletbtn-div" data-title="Delete" data-toggle="modal" data-target="#delete">
+                                                            <span class="fa fa-trash" aria-hidden="true"></span>
+                                                            </button>
+                                                         </p>
+                                                      </td>
+                                                   </tr>
+												    <tr>
+                                                      <td>GO_NDE_Final_Report</td>
+                                                      <td>415-219-5900</td>
+                                                      <td>Jax@pgne.com</td>
+                                                      <td>
+                                                         Cover Sheet
+                                                      </td>
+                                                      <td>
+                                                         <p class="Edit" title="Delete">
+                                                            <button class="btn btn-danger btn-xs deletebtn deletbtn-div" data-title="Delete" data-toggle="modal" data-target="#delete">
+                                                            <span class="fa fa-trash" aria-hidden="true"></span>
+                                                            </button>
+                                                         </p>
+                                                      </td>
+                                                   </tr>
+                                                </tbody>
+                                             </table>
+                                             <div class="clearfix"></div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="page-content fade-in-up">
+                     <div class="row">
+                        <div class="col-sm-12">
+                           <div class="ibox">
+                              <div class="ibox-body">
+                                 <div class="row">
+                                    <div class="col-sm-8 border-bottom">
+                                       <h5 class="font-strong mb-4">Job Aids</h5>
+                                    </div>
+                                    <div class="col-sm-4 border-bottom text-right">
+                                       <div class="addmember-div">
+                                          <a class="" data-toggle="modal" data-target="" href="#">
+                                             <p>Add Important No.<small><i class="fa fa-plus"></i></small></p>
+                                          </a>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="flexbox control-div mb-4 mt-4">
+                                    <div class="flexbox">
+                                       <label class="mb-0 mr-2">Show:</label>
+                                       <div class="select-box-div status_select-div">
+                                          <select class="form-control valid" aria-invalid="false">
+                                             <option value="100">10</option>
+                                             <option value="150">50</option>
+                                             <option value="200">90</option>
+                                          </select>
+                                       </div>
+                                       <label class="mb-0 mr-2 ml-2">Entries</label>
+                                    </div>
+                                    <div class="input-group-icon input-group-icon-left">
+                                       <span>Search</span>
+                                       <input class="form-control form-control-rounded form-control-solid" id="" type="text" placeholder="">
+                                    </div>
+                                 </div>
+                                 <div class="mngement_list">
+                                    <div class="row">
+                                       <div class="col-md-12">
+                                          <div class="table-responsive row">
+                                             <table class="table table-bordered table-hover" id="">
+                                                <thead class="thead-default thead-lg">
+                                                   <tr>
+                                                      <th>Name</th>
+                                                      <th>Phone</th>
+                                                      <th>Email</th>
+                                                      <th>Designation</th>
+													  <th>Description</th>
+                                                      <th>Delete</th>
+                                                   </tr>
+                                                </thead>
+                                                <tbody>
+                                                   <tr>
+                                                      <td>WIX</td>
+                                                      <td>435-219-5907</td>
+                                                      <td>WIX@pgne.com</td>
+                                                      <td>
+                                                         Manager
+                                                      </td>
+													  <td>Rose Finkenbinder, Operations Manager</td>
+                                                      <td>
+                                                         <p class="Edit" title="Delete">
+                                                            <button class="btn btn-danger btn-xs deletebtn deletbtn-div" data-title="Delete" data-toggle="modal" data-target="#delete">
+                                                            <span class="fa fa-trash" aria-hidden="true"></span>
+                                                            </button>
+                                                         </p>
+                                                      </td>
+                                                   </tr>
+												    <tr>
+                                                      <td>WIX</td>
+                                                      <td>715-219-5902</td>
+                                                      <td>WIX@pgne.com</td>
+                                                      <td>
+                                                         Manager
+                                                      </td>
+													  <td>Operations Manager</td>
+                                                      <td>
+                                                         <p class="Edit" title="Delete">
+                                                            <button class="btn btn-danger btn-xs deletebtn deletbtn-div" data-title="Delete" data-toggle="modal" data-target="#delete">
+                                                            <span class="fa fa-trash" aria-hidden="true"></span>
+                                                            </button>
+                                                         </p>
+                                                      </td>
+                                                   </tr>
+                                                </tbody>
+                                             </table>
+                                             <div class="clearfix"></div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+				  <div class="page-content fade-in-up">
+                     <div class="row">
+                        <div class="col-sm-12">
+                           <div class="ibox">
+                              <div class="ibox-body">
+                                 <div class="row">
+                                    <div class="col-sm-8 border-bottom">
+                                       <h5 class="font-strong mb-4">Info related to M&C- as provided by client in Template checklist excel</h5>
+                                    </div>
+                                    <div class="col-sm-4 border-bottom text-right">
+                                       <div class="addmember-div">
+                                          <a class="" data-toggle="modal" data-target="" href="#">
+                                             <p>Add Important No.<small><i class="fa fa-plus"></i></small></p>
+                                          </a>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="flexbox control-div mb-4 mt-4">
+                                    <div class="flexbox">
+                                       <label class="mb-0 mr-2">Show:</label>
+                                       <div class="select-box-div status_select-div">
+                                          <select class="form-control valid" aria-invalid="false">
+                                             <option value="100">10</option>
+                                             <option value="150">50</option>
+                                             <option value="200">90</option>
+                                          </select>
+                                       </div>
+                                       <label class="mb-0 mr-2 ml-2">Entries</label>
+                                    </div>
+                                    <div class="input-group-icon input-group-icon-left">
+                                       <span>Search</span>
+                                       <input class="form-control form-control-rounded form-control-solid" id="" type="text" placeholder="">
+                                    </div>
+                                 </div>
+                                 <div class="mngement_list">
+                                    <div class="row">
+                                       <div class="col-md-12">
+                                          <div class="table-responsive row">
+                                             <table class="table table-bordered table-hover" id="">
+                                                <thead class="thead-default thead-lg">
+                                                   <tr>
+                                                      <th>Name</th>
+                                                      <th>Phone</th>
+                                                      <th>Email</th>
+                                                      <th>Designation</th>
+													  <th>Description</th>
+                                                      <th>Delete</th>
+                                                   </tr>
+                                                </thead>
+                                                <tbody>
+                                                   <tr>
+                                                      <td>WIX</td>
+                                                      <td>435-219-5907</td>
+                                                      <td>WIX@pgne.com</td>
+                                                      <td>
+                                                         Manager
+                                                      </td>
+													  <td>Rose Finkenbinder, Operations Manager</td>
+                                                      <td>
+                                                         <p class="Edit" title="Delete">
+                                                            <button class="btn btn-danger btn-xs deletebtn deletbtn-div" data-title="Delete" data-toggle="modal" data-target="#delete">
+                                                            <span class="fa fa-trash" aria-hidden="true"></span>
+                                                            </button>
+                                                         </p>
+                                                      </td>
+                                                   </tr>
+												    <tr>
+                                                      <td>WIX</td>
+                                                      <td>715-219-5902</td>
+                                                      <td>WIX@pgne.com</td>
+                                                      <td>
+                                                         Manager
+                                                      </td>
+													  <td>Operations Manager</td>
+                                                      <td>
+                                                         <p class="Edit" title="Delete">
+                                                            <button class="btn btn-danger btn-xs deletebtn deletbtn-div" data-title="Delete" data-toggle="modal" data-target="#delete">
+                                                            <span class="fa fa-trash" aria-hidden="true"></span>
+                                                            </button>
+                                                         </p>
+                                                      </td>
+                                                   </tr>
+                                                </tbody>
+                                             </table>
+                                             <div class="clearfix"></div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <footer class="page-footer">
+                     <div class="font-13">2019 ©</div>
+                     <div class="px-3">
+                        Design by: <a href="http://epikso.com" target="_blank">Epik Solutions</a>
+                     </div>
+                     <div class="to-top"><i class="fa fa-angle-double-up"></i></div>
+                  </footer>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- START SEARCH PANEL-->
+      <!-- BEGIN PAGA BACKDROPS-->
+      <div class="sidenav-backdrop backdrop"></div>
+      <div class="preloader-backdrop">
+         <div class="page-preloader">Loading</div>
+      </div>
+      <!-- END PAGA BACKDROPS-->
+      <!-- CORE PLUGINS-->
+      <script src="assets/vendors/js/jquery.min.js"></script>
+      <script src="assets/vendors/js/popper.min.js"></script>
+      <script src="assets/vendors/js/bootstrap.min.js"></script>
+      <script src="assets/vendors/js/metisMenu.min.js"></script>
+      <script src="assets/vendors/js/jquery.slimscroll.min.js"></script>
+      <script src="assets/vendors/js/toastr.min.js"></script>
+      <script src="assets/vendors/js/jquery.validate.min.js"></script>
+      <script src="assets/vendors/js/bootstrap-select.min.js"></script>
+      <script src="assets/vendors/js/s.min.js"></script>
+      <script src="assets/vendors/Flot/jquery.flot.js"></script>
+      <script src="assets/vendors/Flot/jquery.flot.resize.js"></script>
+      <script src="assets/vendors/Flot/jquery.flot.pie.js"></script>
+      <script src="assets/vendors/Flot/jquery.flot.time.js"></script>
+      <script src="assets/vendors/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
+      <script src="assets/vendors/Flot/jquery.flot.categories.js"></script>
+      <script src="assets/vendors/Flot/jquery.flot.stack.js"></script>
+      <script src="assets/vendors/Flot/jquery.flot.selection.js"></script>
+      <script src="assets/vendors/flot-orderBars/js/jquery.flot.orderBars.js"></script>
+      <script src="assets/js/app.min.js"></script>
+      <script src="assets/js/dashboard_visitors.js"></script>
+      <script></script>
+   </body>
+</html>

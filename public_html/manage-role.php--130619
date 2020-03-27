@@ -1,0 +1,110 @@
+<?php
+include('header.php');
+$role_id = $_SESSION['role'];
+$roleID = explode(',',$role_id);
+if (in_array("1", $roleID))
+{
+	
+}else{
+session_destroy();
+header("Location: index.php");	
+}
+?>
+	<div class="container">
+        <div class="content-wrapper">
+            <!-- START PAGE CONTENT-->
+            <div class="page-content fade-in-up">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="ibox">
+                            <div class="ibox-body">
+                                <div class="row">
+                                    <div class="col-sm-8 border-bottom">
+                                        <h5 class="font-strong mb-4">Management List</h5>
+                                    </div>
+									<div class="col-sm-4 border-bottom text-right">
+										<div class="addmember-div ">
+											 <a class="newdiv" href="#">Edit Role&nbsp; <span><i class="fa fa-pencil"></i></span></a>
+											<a class="newdiv" href="#">Add Role&nbsp; <span><i class="fa fa-pencil"></i></span></a> 											 
+										</div> 
+									</div>
+                                </div>
+
+                                <div class="flexbox control-div mb-4 mt-4">
+                                    <div class="flexbox">
+                                        <label class="mb-0 mr-2">Show:</label>
+                                        <div class="select-box-div status_select-div">
+													<select class="form-control valid" aria-invalid="false">
+														<option value="100">100</option>
+														<option value="150">150</option>
+														<option value="200">200</option>
+													</select>				
+										</div>
+										<label class="mb-0 mr-2 ml-2">Entries</label>
+                                    </div>
+                                    <div class="input-group-icon input-group-icon-left">
+                                        <span>Search</span>
+										
+                                        <input class="form-control form-control-rounded form-control-solid" id="key-search" type="text" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="mngement_list">
+                                    <div class="row">
+                                       <div class="col-md-12">
+                                          <div class="table-responsive row">
+                                             <table class="table table-bordered table-hover" id="datatable">
+                                                <thead class="thead-default thead-lg ">
+                                                <tr>
+												   <th class="widthdiv">Sir No</th>
+                                                   <th>First Name</th>
+                                                   
+                                                </tr></thead>
+                                                <tbody>
+                                                   <tr>
+                                                      <td class="widthdiv">1</td>
+                                                      <td>	Supervisor- Level III</td>
+                                                      
+                                                      
+                                                   </tr>
+                                                   <tr class="thead-bg-color">
+                                                      <td class="widthdiv">2</td>
+                                                      <td>Employees</td>
+                                                      
+                                                   </tr>
+												   <tr>
+                                                      <td class="widthdiv">3</td>
+                                                      <td>NDE Vendor Technician</td>
+                                                      
+                                                      
+                                                   </tr>
+                                                   <tr class="thead-bg-color">
+                                                      <td class="widthdiv">4</td>
+                                                      <td>Supervisor- Level II</td>
+                                                      
+                                                   </tr>
+												   
+												   <tr>
+                                                      <td class="widthdiv">5</td>
+                                                      <td>	NDE Field Technician</td>
+                                                      
+                                                      
+                                                   </tr>
+                                                   
+                                                </tbody>
+                                             </table>
+                                             <div class="clearfix"></div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				
+
+               
+           <?php
+include('footer.php');
+
+?>

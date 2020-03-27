@@ -1,0 +1,13 @@
+stages:
+  - deploy
+
+deploy_qa:
+  stage: deploy
+  script:
+    - echo "Deploy to QA Environoment"
+  environment:
+    name: QA
+    url: http://test2.epiksolution.org/
+  when: manual
+  only:
+  - master

@@ -1,0 +1,30 @@
+pipeline {
+    agent any
+
+    stages {
+        stage ('Compile Stage') {
+
+            steps {
+            sh label: '', script: 'git clone https://github.com/vickyseth9933/demo.git'
+}
+}
+}
+}
+
+pipeline {
+
+  agent any
+    stages {
+        stage ('Compile Stage') {
+
+            steps {
+  environment {
+    git_commit_message = ''
+    git_commit_diff = ''
+    git_commit_author = ''
+    git_commit_author_name = ''
+    git_commit_author_email = ''
+  }
+            }
+}
+}

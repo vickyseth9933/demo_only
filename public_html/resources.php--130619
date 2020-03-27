@@ -1,0 +1,522 @@
+<?php
+include('header.php');
+$userid = $_SESSION['userid'];
+if($userid==''){
+  header("Location: index.php");  
+}
+$role_id = $_SESSION['role'];
+$roleID = explode(',',$role_id);
+// if (in_array("1", $roleID))
+// {
+	
+// }else{
+// session_destroy();
+// header("Location: index.php");	
+// }
+
+if(!empty($_GET['id']) && $_GET['id'] !=''){
+	$delete_resource_id = $_GET['id'];
+	// sql to delete a record
+	$sql = "DELETE FROM cb_resources_document WHERE id = $delete_resource_id"; 
+
+	if (mysqli_query($conn, $sql)) {
+		$del_success = "Record Deleted Successfully";
+	} else {
+		$del_success = "Error deleting record";
+	}
+}
+
+?>
+
+<style>
+select.custom-select.custom-select-sm.form-control.form-control-sm {
+    width: 58px;
+}
+input.form-control.form-control-sm {
+    background-color: #f4f5f9;
+    border-color: #f4f5f9;
+    border-radius: 24px;
+}
+</style>
+
+
+         <div class="container">
+            <div class="content-wrapper">
+               <!-- START PAGE CONTENT-->
+               <div class="page-content fade-in-up">
+                  <div class="row">
+                     <div class="col-sm-12">
+                        <div class="ibox mb-0">
+                           <div class="ibox-body pb-0">
+                              <div class="row">
+                                 <div class="col-sm-8 border-bottom">
+                                    <h5 class="font-strong mb-4">Reference Documents</h5>
+                                 </div>
+                                 <div class="col-sm-4 border-bottom text-right">
+                                    <div class="addmember-div">
+                                       <a class="" data-toggle="modal" data-target="#modaldocuploadForm" href="#">
+                                          <p>Add Documents<small><i class="fa fa-plus"></i></small></p>
+                                       </a>
+                                    </div>
+                                 </div>
+                              </div>
+                              <!--<div class="flexbox control-div mb-4 mt-4">-->
+                              <!--   <div class="flexbox">-->
+                              <!--      <label class="mb-0 mr-2">Show:</label>-->
+                              <!--      <div class="select-box-div status_select-div">-->
+                              <!--         <select class="selectpicker show-tick form-control" id="type-filter" data-style="btn-solid" data-width="150px">-->
+                                        
+                              <!--            <option value="100">100</option>-->
+                              <!--            <option value="150">150</option>-->
+                              <!--            <option value="200">200</option>-->
+                              <!--                <option value="">All</option>-->
+                              <!--         </select>-->
+                              <!--      </div>-->
+                              <!--      <label class="mb-0 mr-2 ml-2">Entries</label>-->
+                              <!--   </div>-->
+                              <!--   <div class="input-group-icon input-group-icon-left">-->
+                              <!--      <span>Search</span>-->
+                              <!--      <input class="form-control form-control-rounded form-control-solid" id="key-search" type="text" placeholder="">-->
+                              <!--   </div>-->
+                              <!--</div>-->
+							  
+                              <div class="mngement_list">
+                                 <div class="row mt-2">
+                                    <div class="col-md-12">
+										<?php if(!empty($del_success)){
+											   echo $del_success;
+										    } 
+										?>
+                                       <div class="table-responsive row">
+                                          <table class="table table-bordered table-hover" id="table">
+                                             <thead class="thead-default thead-lg">
+                                                <tr>
+                                                   <th>Title</th>
+                                                   <th>Upload Date</th>
+                                                   <th>Description</th>
+                                                   <th>Download</th>
+												<?php if (in_array("1", $roleID)){ ?>   
+                                                   <th>Delete</th>
+												<?php } ?>   
+                                                </tr>
+                                             </thead>
+                                             <tbody>
+											 
+											 <?php
+												$sql = "SELECT * FROM cb_resources_document";
+												$result = $conn->query($sql);
+												while($row = $result->fetch_assoc()) { ?>
+                                                <tr>
+                                                   <td><img _ngcontent-c1="" alt="" class="doctype" src="assets/img/docicon.png" width="30" height="30"> <?php echo $row['title'];?></td>
+                                                   <td><?php echo date('m-d-Y',strtotime($row['uploaded_date']));?></td>
+                                                   <td><?php echo $row['description'];?></td>
+                                                   <td>
+                                                      <p class="Edit" title="Edit">
+													  <a class="add-btn" href="resources/<?php echo $row['file_path'];?>" download>
+														  <i aria-hidden="true" class="fa fa-download"></i>
+														</a>
+                                                      </p>
+                                                   </td>
+												   <?php if (in_array("1", $roleID)){ ?> 
+													   <td>
+														  <p class="Edit" title="Delete">
+														  <a class="btn btn-danger btn-xs deletebtn deletbtn-div" href="resources.php?id=<?php echo $row["id"]; ?>" onclick="return confirm('Are you sure you want to delete this item?');"><span class="fa fa-trash" aria-hidden="true"></span></a>
+														  </p>
+													   </td>
+												   <?php } ?>  
+                                                </tr>
+												<?php } ?>       
+                                                
+                                                
+                                                
+											
+                                             </tbody>
+                                          </table>
+                                          <div class="clearfix"></div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                   <!--<div class="page-content fade-in-up">
+                     <div class="row">
+                        <div class="col-sm-12">
+                           <div class="ibox">
+                              <div class="ibox-body">
+                                 <div class="row">
+                                    <div class="col-sm-8 border-bottom">
+                                       <h5 class="font-strong mb-4">MOI (Methods Of Inspection)</h5>
+                                    </div>
+                                    <div class="col-sm-4 border-bottom text-right">
+                                       <div class="addmember-div">
+                                          <a class="" data-toggle="modal" data-target="" href="#">
+                                             <p>Add Vendor<small><i class="fa fa-plus"></i></small></p>
+                                          </a>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="flexbox control-div mb-4 mt-4">
+                                    <div class="flexbox">
+                                       <label class="mb-0 mr-2">Show:</label>
+                                       <div class="select-box-div status_select-div">
+                                          <select class="form-control valid" aria-invalid="false">
+                                             <option value="100">100</option>
+                                             <option value="150">150</option>
+                                             <option value="200">200</option>
+                                          </select>
+                                       </div>
+                                       <label class="mb-0 mr-2 ml-2">Entries</label>
+                                    </div>
+                                    <div class="input-group-icon input-group-icon-left">
+                                       <span>Search</span>
+                                       <input class="form-control form-control-rounded form-control-solid" id="" type="text" placeholder="">
+                                    </div>
+                                 </div>
+                                 <div class="mngement_list">
+                                    <div class="row">
+                                       <div class="col-md-12">
+                                          <div class="table-responsive row">
+                                             <table class="table table-bordered table-hover" id="">
+                                                <thead class="thead-default thead-lg">
+                                                   <tr>
+                                                      <th>Organisation Name</th>
+                                                      <th>Phone</th>
+                                                      <th>Email</th>
+                                                      <th>Contact Person</th>
+                                                      <th>Delete</th>
+                                                   </tr>
+                                                </thead>
+                                                <tbody>
+                                                   
+                                                   
+                                                   
+												  
+												    
+                                                </tbody>
+                                             </table>
+                                             <div class="clearfix"></div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>-->
+                 <!-- <div class="page-content fade-in-up">
+                     <div class="row">
+                        <div class="col-sm-12">
+                           <div class="ibox">
+                              <div class="ibox-body">
+                                 <div class="row">
+                                    <div class="col-sm-8 border-bottom">
+                                       <h5 class="font-strong mb-4">Job Aids</h5>
+                                    </div>
+                                    <div class="col-sm-4 border-bottom text-right">
+                                       <div class="addmember-div">
+                                          <a class="" data-toggle="modal" data-target="" href="#">
+                                             <p>Add Important No.<small><i class="fa fa-plus"></i></small></p>
+                                          </a>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="flexbox control-div mb-4 mt-4">
+                                    <div class="flexbox">
+                                       <label class="mb-0 mr-2">Show:</label>
+                                       <div class="select-box-div status_select-div">
+                                          <select class="form-control valid" aria-invalid="false">
+                                             <option value="100">10</option>
+                                             <option value="150">50</option>
+                                             <option value="200">90</option>
+                                          </select>
+                                       </div>
+                                       <label class="mb-0 mr-2 ml-2">Entries</label>
+                                    </div>
+                                    <div class="input-group-icon input-group-icon-left">
+                                       <span>Search</span>
+                                       <input class="form-control form-control-rounded form-control-solid" id="" type="text" placeholder="">
+                                    </div>
+                                 </div>
+                                 <div class="mngement_list">
+                                    <div class="row">
+                                       <div class="col-md-12">
+                                          <div class="table-responsive row">
+                                             <table class="table table-bordered table-hover" id="">
+                                                <thead class="thead-default thead-lg">
+                                                   <tr>
+                                                      <th>Name</th>
+                                                      <th>Phone</th>
+                                                      <th>Email</th>
+                                                      <th>Designation</th>
+													  <th>Description</th>
+                                                      <th>Delete</th>
+                                                   </tr>
+                                                </thead>
+                                                <tbody>
+                                                   <tr>
+                                                      <td>WIX</td>
+                                                      <td>435-219-5907</td>
+                                                      <td>WIX@pgne.com</td>
+                                                      <td>
+                                                         Manager
+                                                      </td>
+													  <td>Rose Finkenbinder, Operations Manager</td>
+                                                      <td>
+                                                         <p class="Edit" title="Delete">
+                                                            <button class="btn btn-danger btn-xs deletebtn deletbtn-div" data-title="Delete" data-toggle="modal" data-target="#delete">
+                                                            <span class="fa fa-trash" aria-hidden="true"></span>
+                                                            </button>
+                                                         </p>
+                                                      </td>
+                                                   </tr>
+												    <tr>
+                                                      <td>WIX</td>
+                                                      <td>715-219-5902</td>
+                                                      <td>WIX@pgne.com</td>
+                                                      <td>
+                                                         Manager
+                                                      </td>
+													  <td>Operations Manager</td>
+                                                      <td>
+                                                         <p class="Edit" title="Delete">
+                                                            <button class="btn btn-danger btn-xs deletebtn deletbtn-div" data-title="Delete" data-toggle="modal" data-target="#delete">
+                                                            <span class="fa fa-trash" aria-hidden="true"></span>
+                                                            </button>
+                                                         </p>
+                                                      </td>
+                                                   </tr>
+                                                </tbody>
+                                             </table>
+                                             <div class="clearfix"></div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>-->
+				  <!--<div class="page-content fade-in-up">
+                     <div class="row">
+                        <div class="col-sm-12">
+                           <div class="ibox">
+                              <div class="ibox-body">
+                                 <div class="row">
+                                    <div class="col-sm-8 border-bottom">
+                                       <h5 class="font-strong mb-4">Info related to M&C- as provided by client in Template checklist excel</h5>
+                                    </div>
+                                    <div class="col-sm-4 border-bottom text-right">
+                                       <div class="addmember-div">
+                                          <a class="" data-toggle="modal" data-target="" href="#">
+                                             <p>Add Important No.<small><i class="fa fa-plus"></i></small></p>
+                                          </a>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="flexbox control-div mb-4 mt-4">
+                                    <div class="flexbox">
+                                       <label class="mb-0 mr-2">Show:</label>
+                                       <div class="select-box-div status_select-div">
+                                          <select class="form-control valid" aria-invalid="false">
+                                             <option value="100">10</option>
+                                             <option value="150">50</option>
+                                             <option value="200">90</option>
+                                          </select>
+                                       </div>
+                                       <label class="mb-0 mr-2 ml-2">Entries</label>
+                                    </div>
+                                    <div class="input-group-icon input-group-icon-left">
+                                       <span>Search</span>
+                                       <input class="form-control form-control-rounded form-control-solid" id="" type="text" placeholder="">
+                                    </div>
+                                 </div>
+                                 <div class="mngement_list">
+                                    <div class="row">
+                                       <div class="col-md-12">
+                                          <div class="table-responsive row">
+                                             <table class="table table-bordered table-hover" id="">
+                                                <thead class="thead-default thead-lg">
+                                                   <tr>
+                                                      <th>Name</th>
+                                                      <th>Phone</th>
+                                                      <th>Email</th>
+                                                      <th>Designation</th>
+													  <th>Description</th>
+                                                      <th>Delete</th>
+                                                   </tr>
+                                                </thead>
+                                                <tbody>
+                                                   <tr>
+                                                      <td>WIX</td>
+                                                      <td>435-219-5907</td>
+                                                      <td>WIX@pgne.com</td>
+                                                      <td>
+                                                         Manager
+                                                      </td>
+													  <td>Rose Finkenbinder, Operations Manager</td>
+                                                      <td>
+                                                         <p class="Edit" title="Delete">
+                                                            <button class="btn btn-danger btn-xs deletebtn deletbtn-div" data-title="Delete" data-toggle="modal" data-target="#delete">
+                                                            <span class="fa fa-trash" aria-hidden="true"></span>
+                                                            </button>
+                                                         </p>
+                                                      </td>
+                                                   </tr>
+												    <tr>
+                                                      <td>WIX</td>
+                                                      <td>715-219-5902</td>
+                                                      <td>WIX@pgne.com</td>
+                                                      <td>
+                                                         Manager
+                                                      </td>
+													  <td>Operations Manager</td>
+                                                      <td>
+                                                         <p class="Edit" title="Delete">
+                                                            <button class="btn btn-danger btn-xs deletebtn deletbtn-div" data-title="Delete" data-toggle="modal" data-target="#delete">
+                                                            <span class="fa fa-trash" aria-hidden="true"></span>
+                                                            </button>
+                                                         </p>
+                                                      </td>
+                                                   </tr>
+                                                </tbody>
+                                             </table>
+                                             <div class="clearfix"></div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>-->
+                  <!--<footer class="page-footer">-->
+                  <!--   <div class="font-13">2019 ©</div>-->
+                  <!--   <div class="px-3">-->
+                  <!--      Design by: <a href="http://epikso.com" target="_blank">Epik Solutions</a>-->
+                  <!--   </div>-->
+                  <!--   <div class="to-top"><i class="fa fa-angle-double-up"></i></div>-->
+                  <!--</footer>-->
+                  <?php include('footer.php');  ?>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- START SEARCH PANEL-->
+      <!-- BEGIN PAGA BACKDROPS-->
+      <div class="sidenav-backdrop backdrop"></div>
+      <div class="preloader-backdrop">
+         <div class="page-preloader">Loading</div>
+      </div>
+	 
+<!-------popup-form-end-form-here----------->
+	 
+<div class="modal fade" id="modaldocuploadForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog">
+            <div class="modal-content rounded pb-3">
+               <div class="modal-header popup-div">
+			   
+			   
+                  <button type="button" class="" data-dismiss="modal" aria-hidden="true"><span><i class="fa fa-times-circle"></i></span></button>
+                  <h4 class="modal-title custom_align" id="Heading">Add Resources Detail</h4>
+               </div>
+               <div class="modal-body">
+			    <span id="successmsg" class=""></span>
+					<form class="addresource" name="add_member" action="#" method="post" enctype="multipart/form-data">
+					    <input type="hidden" value="<?= $userid ?>" name="user_id" id="user_id">
+                  <div class="form-group">
+                     <input class="form-control" id="resource_title" type="text" name="res_title" placeholder="Title">
+					 <span class="error" id="resource_title_error"></span>
+                  </div>
+                  <div class="form-group">
+                     <input class="form-control" id="resource_desc" type="text" name="res_desc" placeholder="Description">
+					 <span class="error" id="resource_desc_error"></span>
+                  </div>
+				  <div class="form-group">
+                     <input class="form-control " id="resoource_doc" type="file" name="fileToUpload" placeholder="resource" style="padding:0;">
+					 <span class="error" id="resource_doc_error"></span>
+                  </div>
+                  
+					<div class="">
+					  <button type="button" id="addresource" class="btn btn-warning btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span> Add</button>
+				   </div>
+				   <div  id="ship_value"></div>
+				   </form>
+               </div>
+               
+            </div>
+            <!-- /.modal-content --> 
+         </div>
+</div>
+
+
+<!-------popup-form-end-form-here----------->  
+	  
+     
+     <script>
+		$(document).ready(function(){
+			$("button#addresource").click(function(){
+				var $err = 'false';
+				if($('#resource_title').val() == ''){
+					$("#resource_title_error").html('Please enter resource title');
+					$err = 'true';
+				}else{
+					$("#resource_title_error").html('');
+				}				
+				if($('#resource_desc').val() == ''){
+					$("#resource_desc_error").html('Please enter resource description');
+					$err = 'true';
+				}else{
+					$("#resource_desc_error").html('');
+				}
+				if($('#resoource_doc').val() == ''){
+					$("#resource_doc_error").html('Please select resource file');
+					$err = 'true';
+				}else{
+					$("#resource_doc_error").html('');
+				}			
+				
+				if($err == 'true'){
+					return false;
+				}
+				var fileExtension =  ['doc', 'docx', 'pdf'];
+				if ($.inArray($('#resoource_doc').val().split('.').pop().toLowerCase(), fileExtension) == -1) {
+					$("#resource_doc_error").html('Only .pdf, .doc, .docx format is allowed.');
+					this.value = ''; // Clean field
+					return false;
+				}
+				
+				var form = $('form.addresource')[0];
+				var formData = new FormData(form);
+				$.ajax({
+				type: "POST",
+				url: "insert_resource.php",
+				data: formData,
+				processData: false,
+                contentType: false,
+					success: function(message){					
+					$("#successmsg").html(message);
+					setTimeout(function(){ location.reload(true); }, 5000);					
+					//$("#feedback-modal").modal('hide');
+					},
+					error: function(){
+					alert("Error");
+					}
+				});
+			});
+		});
+	</script>
+ 
+<script>
+    $(document).ready(function() {
+    $('#table').DataTable();
+} );
+</script>
+   </body>
+</html>
