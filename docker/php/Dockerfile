@@ -33,12 +33,5 @@ ENV PATH ~/.composer/vendor/bin:$PATH
 # Work from /app dir
 WORKDIR /app
 
-# Lumen permissions
-COPY --chown=www-data:www-data src/ /app
-RUN chmod -R ug+rwx /app/storage
-
-# Install composer packages
-RUN composer install -n -o
-
 # Run PHP FPM
 CMD "php-fpm"
